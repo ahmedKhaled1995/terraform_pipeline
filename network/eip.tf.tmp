@@ -1,0 +1,15 @@
+resource "aws_eip" "iti" {
+  #vpc = true
+
+  #instance                  = aws_instance.iti.id
+  #associate_with_private_ip = "10.0.0.12"
+  #depends_on                = [aws_internet_gateway.iti]
+  tags = {
+    Name = "iti"
+  }
+
+  provisioner "local-exec" {
+    command = "${self.public_ip} echo server is runninh"
+  }
+
+}
